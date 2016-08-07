@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'chat_rooms/index'
+
+  get 'chat_rooms/new'
+
+  get 'chat_rooms/create'
+
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
