@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  get 'chat_rooms/index'
-
-  get 'chat_rooms/new'
-
-  get 'chat_rooms/create'
+ 
 
   devise_for :users
+
+  resources :chat_rooms, only: [:new, :create, :show, :index]
+
+  mount ActionCable.server => '/cable'
+
+  root 'chat_rooms#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
